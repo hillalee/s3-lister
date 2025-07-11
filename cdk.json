@@ -1,0 +1,8 @@
+{
+    "context": {
+      "bucket_name": "my-serverless-bucket",
+      "lambda_name": "serverless-s3-lister",
+      "sns_topic_name": "serverless-s3-alerts"
+    }
+  }
+  
