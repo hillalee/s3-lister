@@ -1,6 +1,6 @@
 # Serverless S3 Object Lister with Email Notifications (CDK Version)
 
-A fully automated serverless application built with **AWS CDK** that lists objects from an S3 bucket and sends email notifications via SNS upon execution. This project demonstrates Infrastructure as Code (IaC) best practices, CI/CD automation, and AWS-managed services.
+A fully automated serverless application built with AWS CDK that lists objects from an S3 bucket and sends email notifications via SNS upon execution. This project demonstrates Infrastructure as Code (IaC) best practices, CI/CD automation, and AWS-managed services.
 
 ## Architecture Overview
 
@@ -167,12 +167,12 @@ more response.json
 
 The workflow in `.github/workflows/deploy.yml` uses `workflow_dispatch` to allow manual deployment from the GitHub UI. It installs dependencies, bootstraps CDK, and deploys the stack using the email context parameter.The workflow automates the complete deployment process through the following steps:
 
-1. Manual Trigger - Workflow can be triggered manually with an email parameter for notifications
-2. Environment Setup - Configures Python 3.11 environment and installs project dependencies
-3. AWS Configuration - Sets up AWS credentials and bootstraps CDK environment
-4. Infrastructure Deployment - Deploys the complete CDK stack (Lambda, S3, IAM roles) to AWS
-5. Sample Data Upload - Automatically uploads sample files to the newly created S3 bucket
-6. Event-Driven Processing - Lambda function is pre-configured to trigger on any new file uploads
+1. **Manual Trigger** - Workflow can be triggered manually with an email parameter for notifications
+2. **Environment Setup** - Configures Python 3.11 environment and installs project dependencies
+3. **AWS Configuration** - Sets up AWS credentials and bootstraps CDK environment
+4. **Infrastructure Deployment** - Deploys the complete CDK stack (Lambda, S3, IAM roles) to AWS
+5. **Sample Data Upload** - Automatically uploads sample files to the newly created S3 bucket
+6. **Event-Driven Processing** - Lambda function is pre-configured to trigger on any new file uploads
 
 ## Troubleshooting
 
