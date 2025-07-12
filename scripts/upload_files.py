@@ -19,7 +19,7 @@ def upload_files(bucket_name, file_path=SAMPLE_PATH, object_key=None):
         # Upload each file
         for file in files:
             if object_key is None:
-                key = file.split('/')[-1] #TODO - check
+                key = file.split('/')[-1]
             else:
                 key = f"{object_key}/{file.split('/')[-1]}"
                 

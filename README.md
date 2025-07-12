@@ -109,7 +109,7 @@ gh workflow run deploy.yml --ref main --field email=your@email.com
 ## Project Structure
 
 ```
-serverless-s3-lister/
+s3-lister/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions workflow
@@ -121,6 +121,7 @@ serverless-s3-lister/
 │   ├── doc2.txt
 │   └── belle.jpg
 ├── scripts/
+│   ├── test_event.json          # Manual Lambda trigger script
 │   ├── test_lambda.py          # Manual Lambda trigger script
 │   └── upload_files.py         # Optional S3 upload script
 ├── stacks/
@@ -129,12 +130,19 @@ serverless-s3-lister/
 ├── app.py                      # CDK entry point
 ├── requirements.txt            # Python dependencies
 ├── cdk.json                    # CDK config file
+├── package.json                # node dependencies
 └── README.md
 ```
 
 ## Manual Lambda Testing
 
-### Method 1: Using AWS CLI
+### Method 1: Using Python Test Script
+
+```bash
+python scripts/test_lambda.py <your-lambda-name>
+```
+
+### Method 2: Using AWS CLI
 
 ```bash
 aws lambda invoke \
@@ -144,38 +152,17 @@ aws lambda invoke \
 
 more response.json
 ```
+> On PowerShell, use backticks (`) instead of \.
 
-### Method 2: Using Python Test Script
 
-```bash
-python scripts/test_lambda.py <your-lambda-name>
-```
 
-### Method 3: Using JSON Event File
-This method has 2 options: via AWS console, and via AWS CLI.
-Option 1:
-1. Go to AWS Lambda in the console
-2. Select the deployed Lambda function
-3. Click **Test**, choose or create a new test event with `{}` as the payload
-4. Run the test
-
-Option 2:
-
-```bash
-aws lambda invoke \
-  --function-name <your-lambda-name> \
-  --payload file://test_event.json \
-  response.json
-
-more response.json
-```
 
 ## Lambda Function Logic
 
 1. Reads object list from the S3 bucket (set by environment variable)
-2. Calculates a summary of object names and sizes
+2. Calculates a summary of object names 
 3. Sends an SNS email with the execution report
-4. Returns a success message and file count
+4. Returns a success message 
 
 ## GitHub Actions
 
@@ -208,11 +195,12 @@ The workflow in `.github/workflows/deploy.yml` uses `workflow_dispatch` to allow
 
 ## Extra Features
 I added some extra features to this project:
-1. Lambda function is invoked each time files are uploaded to S3 bucket.
+- Lambda function is invoked each time files are uploaded to S3 bucket.
 
 Features or I would add or change in the future:
 1. Cleaner bootstrap first run, maybe just using default email instead of a flag.
-2. When uploading multiple files, lambda is sending an email after each time. I would change to 1 in the last minute.
+2. When uploading multiple files, lambda is sending an email after each time. I would limit it to each group upload.
+3. Lambda is using its env vars when invoked - for scalability, use event and context instead.
 
 ## About
 This project was made with ♥ by Hilalee. AWS is super cool! 

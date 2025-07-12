@@ -5,14 +5,10 @@ from stacks.serverless_stack import ServerlessStack
 
 
 app = cdk.App()
-
-# skip_check = app.node.try_get_context("skip_email")
 email = app.node.try_get_context("email")
 
 if not email:
     email = "example@gmail.com" # default email for bootstrap and destory purpose
-# elif not email: 
-#     raise Exception("Please provide an email with -c email=your@email.com")
 
-ServerlessStack(app, "HilaleeS3ListerStack", email=email) #, files_to_upload=files_to_upload)
+ServerlessStack(app, "HilaleeS3ListerStack", email=email) 
 app.synth()
