@@ -36,33 +36,38 @@ This application consists of:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/hillalee/serverless-s3-lister.git
-cd serverless-s3-lister
+git clone https://github.com/hillalee/s3-lister.git
+cd s3-lister
 ```
 
-### 2. Install Python and CDK dependencies
+### Deploy the stack using GitHub Actions
+
+You can deploy the CDK stack easily via GitHub Actions with two options:
+
+---
+
+#### Option 1: Via Web Browser (GitHub UI)
+
+1. Open your GitHub repository in a web browser.
+2. Click the **Actions** tab.
+3. Select the **CDK Deploy** workflow from the list.
+4. Click the **Run workflow** button (top right).
+5. Enter your email address for SNS notifications in the input field.
+6. Click **Run workflow** to start the deployment.
+
+The workflow will handle the full deployment and upload sample files automatically.
+
+---
+
+#### Option 2: Via GitHub CLI (`gh`)
+
+Make sure you have the GitHub CLI installed and authenticated.
+
+Run this command in your terminal inside the repo folder:
 
 ```bash
-# Python requirements
-pip install -r requirements.txt
-
-# CDK dependencies
-npm install
+gh workflow run deploy.yml --ref main --field email=your@email.com
 ```
-
-### 3. Bootstrap CDK (first time only)
-
-```bash
-cdk bootstrap -c skip_email=true
-```
-
-### 4. Deploy the stack
-
-```bash
-cdk deploy --require-approval never --outputs-file output.json -c email=your@email.com
-
-```
-After deploying, you would be able to see all resources created in ```output.json```.
 
 > ⚠️ The email must be confirmed manually after the first deployment. Check your inbox and confirm the SNS subscription to receive notifications. Notice email may get to spam folder.
 
@@ -173,6 +178,7 @@ I added some extra features to this project:
 
 Features or I would add or change in the future:
 1. Cleaner bootstrap first run, maybe just using default email instead of a flag.
+2. When uploading multiple files, lambda is sending an email after each time. I would change to 1 in the last minute.
 
 ## About
 This project was made with ♥ by Hilalee. AWS is super cool! 
