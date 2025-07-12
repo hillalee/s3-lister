@@ -156,9 +156,13 @@ The workflow in `.github/workflows/deploy.yml` uses `workflow_dispatch` to allow
 - [AWS SNS Documentation](https://docs.aws.amazon.com/sns/)
 - [GitHub Actions Docs](https://docs.github.com/en/actions)
 
-**Resources I particulary enjoyed:**
+**Resources I particularly enjoyed:**
 - [AWS CDK security best practices](https://docs.aws.amazon.com/cdk/v2/guide/best-practices-security.html#:~:text=Considerations%20for%20granting%20least%20privilege,impact%20developer%20productivity%20and%20deployments.)
 - [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+- [aws-cdk-examples](https://github.com/aws-samples/aws-cdk-examples/tree/main)
 
+
+## About
+This project was made with ♥ by Hilalee. AWS is super cool! 
 
 ---
