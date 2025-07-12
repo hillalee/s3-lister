@@ -43,7 +43,9 @@ cd s3-lister
 
 ### 2. Manage Github Secrets
 
-In order to login to AWS services, you need to insert your credentials as secrets. You can read about github secrets [here](https://docs.github.com/en/actions/how-tos/security-for-github-actions/security-guides/using-secrets-in-github-actions). You can either update them in the github website, or through using the GitHub CLI tool (`gh`):
+In order to login to AWS services, you need to insert your credentials as secrets. You can read about github secrets [here](https://docs.github.com/en/actions/how-tos/security-for-github-actions/security-guides/using-secrets-in-github-actions). 
+You can view your credentials running ```cat ~/.aws/credentials``` (on a linux machine).
+You can either update them in the github website, or through using the GitHub CLI tool (`gh`):
 #### Steps:
 
 1. **Install GitHub CLI** (if you haven't yet):
