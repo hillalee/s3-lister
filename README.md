@@ -146,12 +146,13 @@ python scripts/test_lambda.py <your-lambda-name>
 ```bash
 aws lambda invoke \
   --function-name <your-lambda-name> \
+  --cli-binary-format raw-in-base64-out \
   --payload '{}' \
   response.json
 
 more response.json
 ```
-> On PowerShell, use backticks (`) instead of \.
+> On PowerShell, use backticks (`) instead of \
 
 
 
