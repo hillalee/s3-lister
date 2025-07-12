@@ -6,7 +6,8 @@ from aws_cdk import (
     aws_sns as sns,
     aws_sns_subscriptions as subscriptions,
     aws_s3_notifications as s3n,aws_s3_notifications as s3n,
-    CfnOutput
+    CfnOutput,
+    Duration as cdk_Duration
 )
 
 from constructs import Construct
@@ -53,13 +54,14 @@ class ServerlessStack(Stack):
         # create lambda function with iam role
         lambda_function = _lambda.Function(
             self, "hilalee-lambda-s3-lister",
-            runtime=_lambda.Runtime.PYTHON_3_8,
-            handler="handler.lambda_handler",
+            runtime=_lambda.Runtime.PYTHON_3_11,
+            handler="lambda_handler.lambda_handler",
             code=_lambda.Code.from_asset("lambda"),
             environment={
                 "BUCKET_NAME": bucket.bucket_name,
                 "TOPIC_ARN": topic.topic_arn
             },
+            timeout=cdk_Duration.minutes(1),
             role=iam_role)
         
         # EXTRA FEATURE: adds a trigger - lambda is invoked whenever new files are uploaded to the bucket
