@@ -7,7 +7,8 @@ from aws_cdk import (
     aws_sns_subscriptions as subscriptions,
     aws_s3_notifications as s3n,aws_s3_notifications as s3n,
     CfnOutput,
-    Duration as cdk_Duration
+    Duration as cdk_Duration,
+    Tags
 )
 
 from constructs import Construct
@@ -69,6 +70,8 @@ class ServerlessStack(Stack):
             s3.EventType.OBJECT_CREATED,
             s3n.LambdaDestination(lambda_function)
         )
+        Tags.of(self).add("Project", "S3Lister")
+
                 
         CfnOutput(self, "BucketNameOutput",
                    value=bucket.bucket_name,
