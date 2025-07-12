@@ -21,12 +21,10 @@ class ServerlessStack(Stack):
 
         # create S3 bucket
         bucket = s3.Bucket(self, "hilalee-s3-bucket")
-        print(f"Created bucket: {bucket.bucket_name}")
 
 
         # create SNS topic
         topic = sns.Topic(self, "hilalee-sns-topic")
-        print(f"Created topic: {topic.topic_arn}")
 
         # add email subscription to the topic
         topic.add_subscription(subscriptions.EmailSubscription(email))
@@ -69,9 +67,7 @@ class ServerlessStack(Stack):
             s3.EventType.OBJECT_CREATED,
             s3n.LambdaDestination(lambda_function)
         )
-        
-        print(f"Created lambda function: {lambda_function.function_name}")
-        
+                
         CfnOutput(self, "BucketNameOutput",
                    value=bucket.bucket_name,
                    description="The name of the S3 bucket",

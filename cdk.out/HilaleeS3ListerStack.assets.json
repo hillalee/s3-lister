@@ -1,0 +1,32 @@
+{
+  "version": "40.0.0",
+  "files": {
+    "3b313c2f3e4c60f0671516f39630bac9a91543eb1692f82ffb266a1f74145957": {
+      "source": {
+        "path": "asset.3b313c2f3e4c60f0671516f39630bac9a91543eb1692f82ffb266a1f74145957",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "3b313c2f3e4c60f0671516f39630bac9a91543eb1692f82ffb266a1f74145957.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "70e2c02840da5a53ffff2b187f545d3f280218a7308ee88f9914f024b0bceae4": {
+      "source": {
+        "path": "HilaleeS3ListerStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "70e2c02840da5a53ffff2b187f545d3f280218a7308ee88f9914f024b0bceae4.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -53,16 +53,19 @@ npm install
 ### 3. Bootstrap CDK (first time only)
 
 ```bash
-cdk bootstrap
+cdk bootstrap -c skip_email=true
 ```
 
 ### 4. Deploy the stack
 
 ```bash
-cdk deploy -c email=your@email.com
+cdk deploy --require-approval never --outputs-file output.json -c email=your@email.com
+
 ```
+After deploying, you would be able to see all resources created in ```output.json```.
 
 > ⚠️ The email must be confirmed manually after the first deployment. Check your inbox and confirm the SNS subscription to receive notifications. Notice email may get to spam folder.
+
 
 ## Project Structure
 
@@ -72,15 +75,18 @@ serverless-s3-lister/
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions workflow
 ├── lambda/
-│   ├── s3_lister.py            # Lambda function
+│   ├── lambda_handler.py       # Lambda function
 │   └── requirements.txt
 ├── sample_files/               # Sample files uploaded during deployment
-│   ├── document1.txt
-│   └── image1.jpg
+│   ├── doc1.txt
+│   ├── doc2.txt
+│   └── belle.jpg
 ├── scripts/
 │   ├── test_lambda.py          # Manual Lambda trigger script
 │   └── upload_files.py         # Optional S3 upload script
-├── serverless_stack.py         # CDK Stack definition
+├── stacks/
+│   ├── __init__.py           
+│   └── serverless_stack.py
 ├── app.py                      # CDK entry point
 ├── requirements.txt            # Python dependencies
 ├── cdk.json                    # CDK config file
@@ -161,6 +167,12 @@ The workflow in `.github/workflows/deploy.yml` uses `workflow_dispatch` to allow
 - [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
 - [aws-cdk-examples](https://github.com/aws-samples/aws-cdk-examples/tree/main)
 
+## Extra Features
+I added some extra features to this project:
+1. Lambda function is invoked each time files are uploaded to S3 bucket.
+
+Features or I would add or change in the future:
+1. Cleaner bootstrap first run, maybe just using default email instead of a flag.
 
 ## About
 This project was made with ♥ by Hilalee. AWS is super cool! 
