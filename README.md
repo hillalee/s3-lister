@@ -40,11 +40,9 @@ git clone https://github.com/hillalee/s3-lister.git
 cd s3-lister
 ```
 
-### 2. Deploy the stack using GitHub Actions
 
-You can deploy the CDK stack easily via GitHub Actions.
+### 2. Manage Github Secrets
 
-** Managing GitHub Secrets via CLI**
 In order to login to AWS services, you need to insert your credentials as secrets. You can read about github secrets [here](https://docs.github.com/en/actions/how-tos/security-for-github-actions/security-guides/using-secrets-in-github-actions). You can either update them in the github website, or through using the GitHub CLI tool (`gh`):
 #### Steps:
 
@@ -75,7 +73,7 @@ In order to login to AWS services, you need to insert your credentials as secret
 This securely updates your secrets, which are used by the GitHub Actions workflow.
 
 
-## 2. Deploy Github Actions Workflow
+### 3. Deploy Github Actions Workflow
 In order to deploy the workflow, we have two options:
 
 ---
