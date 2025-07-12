@@ -25,7 +25,7 @@ This application consists of:
 ## Prerequisites
 
 - AWS CLI configured (`aws configure`)
-- Python 3.8+ installed
+- Python 3.11+ installed
 - AWS CDK installed:
   ```bash
   npm install -g aws-cdk
