@@ -121,7 +121,6 @@ s3-lister/
 │   ├── doc2.txt
 │   └── belle.jpg
 ├── scripts/
-│   ├── test_event.json          # Manual Lambda trigger script
 │   ├── test_lambda.py          # Manual Lambda trigger script
 │   └── upload_files.py         # Optional S3 upload script
 ├── stacks/
