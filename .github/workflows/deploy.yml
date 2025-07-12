@@ -1,7 +1,11 @@
 name: CDK Deploy
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # allows manual triggering of the workflow
+    inputs:
+      email: 
+        description: 'Email for notifications'
+        required: true
 
 jobs:
   deploy:
@@ -32,4 +36,11 @@ jobs:
       run: cdk bootstrap
 
     - name: Deploy CDK Stack
-      run: cdk deploy --require-approval never
+      run: cdk deploy --require-approval never -c email=${{ github.event.inputs.email }} --outputs-file outputs.json
+    
+      
+
+    - name: Upload Sample Files
+      run: |
+        BUCKET_NAME=$(cat outputs.json | jq -r '.HilaleeS3ListerStack.BucketNameOutput')
+        aws s3 cp sample_files/ s3://$BUCKET_NAME/sample_files/ --recursive

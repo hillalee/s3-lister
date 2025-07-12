@@ -1,8 +1,8 @@
 {
     "context": {
-      "bucket_name": "my-serverless-bucket",
-      "lambda_name": "serverless-s3-lister",
-      "sns_topic_name": "serverless-s3-alerts"
+      "bucket_name": "hilalee-s3-bucket",
+      "lambda_name": "hilalee-lambda-s3-lister",
+      "sns_topic_name": "hilalee-sns-topic"
     }
   }
   
