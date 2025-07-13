@@ -69,8 +69,8 @@ You can either update them in the github website, or through using the GitHub CL
 3. **Set or update your AWS credentials:**
 
    ```bash
-   gh secret set AWS_ACCESS_KEY_ID --body "AKIA123EXAMPLE" --repo hilalee/s3-lister
-   gh secret set AWS_SECRET_ACCESS_KEY --body "mySecretKeyHere" --repo hilalee/s3-lister
+   gh secret set AWS_ACCESS_KEY_ID --body "AKIA123EXAMPLE" 
+   gh secret set AWS_SECRET_ACCESS_KEY --body "mySecretKeyHere" 
    ```
 
 This securely updates your secrets, which are used by the GitHub Actions workflow.
