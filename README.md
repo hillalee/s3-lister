@@ -64,7 +64,8 @@ This securely updates your secrets, which are used by the GitHub Actions workflo
 
 
 ### 3. Deploy Github Actions Workflow
-In order to deploy the workflow, we have two options:
+> In order to deploy the workflow, you have to go to "Actions" tab on your fork and approve using this repo's Actions.
+Then, we have two options:
 
 ---
 
