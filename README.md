@@ -190,9 +190,9 @@ I added some extra features to this project:
 - Lambda function is invoked each time files are uploaded to S3 bucket.
 
 Features or I would add or change in the future:
-1. Cleaner bootstrap first run, maybe just using default email instead of a flag.
-2. When uploading multiple files, lambda is sending an email after each time. I would limit it to each group upload.
-3. Lambda is using its env vars when invoked - for scalability, use event and context instead.
+1. Right now the Lambda relies on environment variables. For better scalability and modularity, I plan to pass configuration via the event payload instead.
+2. When uploading multiple files, the Lambda currently sends a separate email for each one. A batching mechanism (e.g., using S3 EventBridge → Step Functions → Lambda) could improve UX
+3. Integration of CloudWatch Alarms and adding tests via pytest
 
 ## About
 This project was made with ♥ by Hilalee. AWS is super cool! 
