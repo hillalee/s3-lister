@@ -88,6 +88,7 @@ Make sure you have the GitHub CLI installed and authenticated.
 Run this command in your terminal inside the repo folder:
 
 ```bash
+gh repo set-default <your-username>/s3-lister
 gh workflow run deploy.yml --ref main --field email=your@email.com
 ```
 
