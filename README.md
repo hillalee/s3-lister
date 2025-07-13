@@ -84,13 +84,13 @@ The workflow will handle the full deployment and upload sample files automatical
 
 #### Option 2: Via GitHub CLI (`gh`)
 
-Make sure you have the GitHub CLI installed and authenticated.
+Make sure you have the GitHub CLI installed and authenticated, and have authorized Actions in your fork.
 
 Run this command in your terminal inside the repo folder:
 
 ```bash
 gh repo set-default <your-username>/s3-lister
-gh workflow run deploy.yml --ref main --field email=your@email.com
+gh workflow run deploy.yml --ref master --field email=your@email.com
 ```
 
 > ⚠️ The email must be confirmed manually after the first deployment. Check your inbox and confirm the SNS subscription to receive notifications. Notice email may get to spam folder.
@@ -170,6 +170,8 @@ The workflow in `.github/workflows/deploy.yml` uses `workflow_dispatch` to allow
 1. **Email not received**: Make sure to confirm the SNS subscription manually.
 2. **Lambda timeout**: You can increase the timeout in `serverless_stack.py`.
 3. **Deployment failed**: CDK automatically rolls back changes on failure. Make sure all parameters are valid.
+4. **Can't run workflow**: maske sure you have authorized Github Actions in your fork.
+5. 
 
 ## Resources and Documentation I've Used
 
