@@ -34,12 +34,16 @@ This application consists of:
 
 ## Setup and Deployment
 
-### 1. Clone the Repository
+### 1. Fork and Clone the Repository
+
+1. **Fork** this repository to your GitHub account using the "Fork" button at the top right of the [project page](https://github.com/hillalee/s3-lister)
+2. **Clone** your forked repository:
 
 ```bash
-git clone https://github.com/hillalee/s3-lister.git
+git clone https://github.com/<your-username>/s3-lister.git
 cd s3-lister
 ```
+
 
 
 ### 2. Manage Github Secrets
