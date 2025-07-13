@@ -31,6 +31,7 @@ This application consists of:
   npm install -g aws-cdk
   ```
 - node and npm installed
+- gh CLI installed and authenticated (```sudo apt install gh``` then ```gh auth login```)
 
 ## Setup and Deployment
 
@@ -51,26 +52,8 @@ cd s3-lister
 In order to login to AWS services, you need to insert your credentials as secrets. You can read about github secrets [here](https://docs.github.com/en/actions/how-tos/security-for-github-actions/security-guides/using-secrets-in-github-actions). 
 You can view your credentials running ```cat ~/.aws/credentials``` (on a linux machine).
 You can either update them in the github website, or through using the GitHub CLI tool (`gh`):
-#### Steps:
 
-1. **Install GitHub CLI** (if you haven't yet):
-   ```bash
-   # Windows (winget)
-   winget install --id GitHub.cli
-
-   # macOS (Homebrew)
-   brew install gh
-
-   # Linux (apt)
-   sudo apt install gh
-   ```
-
-2. **Authenticate to GitHub:**
-   ```bash
-   gh auth login
-   ```
-
-3. **Set or update your AWS credentials:**
+**Set or update your AWS credentials:**
 
    ```bash
    gh secret set AWS_ACCESS_KEY_ID --body "AKIA123EXAMPLE" 
