@@ -30,6 +30,7 @@ This application consists of:
   ```bash
   npm install -g aws-cdk
   ```
+- node and npm installed
 
 ## Setup and Deployment
 
